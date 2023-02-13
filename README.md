@@ -6,5 +6,4 @@ Glavni zadatak i ideja projekta je kreiranje aplikacije koja pruža jednostavan 
 
 Aplikacija omogućuje pregled razičitih aplikacija koje su kreirali studenti, a odabirom odgovarajuće aplikacije, pojavljuju se detaljnije informacije o njenim autorima te njenoj svrsi i namjeni.
 
-Autori: Dino Ladavac
-        Teo Matijašić
+Autori: Dino Ladavac i Teo Matijašić
