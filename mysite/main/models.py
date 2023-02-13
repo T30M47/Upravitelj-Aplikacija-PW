@@ -16,7 +16,7 @@ class Aplikacija(models.Model):
     aplikacija_datum=models.DateField()
     aplikacija_URL=models.URLField(max_length=200)
     aplikacija_AkGod=models.CharField(max_length=30)
-    aplikacija_slika=models.ImageField(null=True, blank=True)
+    aplikacija_slika=models.ImageField(null=True, blank=True, upload_to='main/static/media')
     aplikacija_student=models.ManyToManyField(Student)
 
     def __str__(self):
