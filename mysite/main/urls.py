@@ -9,6 +9,7 @@ app_name = 'main'  # here for namespacing of urls.
 
 urlpatterns = [
     path('', AplikacijaList.as_view()),
+    path('<aplikacija_naziv>', AplikacijaPregledList.as_view())
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
