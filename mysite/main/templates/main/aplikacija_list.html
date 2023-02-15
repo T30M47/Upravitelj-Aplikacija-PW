@@ -24,24 +24,24 @@
         aplikaciju putem poveznice.</p><br>
 
     <h3 style="margin: 20px"><strong>Aplikacije:</strong></h3><hr>
-
+    
     <div class="row mx-2">
+        
         {% for aplikacija in aplikacija_list %}
-        <a taget="_blank" href="{{aplikacija.aplikacija_naziv}}">
         <div class="card col-12 col-md-6 col-lg-4 mb-4 mx-2" style="width: 615px; background-color: rgb(53, 53, 53); border-radius: 2%;">
-
+            
             <div class="card-body mx-1">
                 <img src="{{aplikacija.aplikacija_slika}}" class="card-img-top" alt="Thumbnail" width="610" height="300" style="border-radius: 2%"/><br>
                 <br>
                 <h5 class="card-title"><strong><a href="{{aplikacija.aplikacija_naziv}}" style="color: lightgray">{{aplikacija.aplikacija_naziv}}</a></strong></h5>
                 <h6 class="card-title">Autori: {% for student in aplikacija.aplikacija_student.all %}{{student}}{% if not forloop.last %}, {% endif %}{% endfor %}</h6><br>
                 <h6 class="card-subtitle text-muted">Datum: {{aplikacija.aplikacija_datum}}</h6>
-            </div>
+            </div> 
         </div>
-    </a>
+    
         {% endfor %}
     </div>
-
+   
     {% endblock %}
 
 </body>
