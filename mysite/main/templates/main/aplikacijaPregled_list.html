@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sranica Aplikacije</title>
+    <title>Stranica Aplikacije</title>
 </head>
 <body style="margin-top:20px; margin-left: 250px; margin-right: 250px;">
     {% load static %}
@@ -14,15 +14,16 @@
     <br>
     <div class="row">
         {% for aplikacija in aplikacija_list %}
-        <div class="col-12 col-lg-6">
+     
         <h3 style="margin-top: 15px;"><strong>{{aplikacija.aplikacija_naziv}}</strong></h3>
-        <h6 class="text-muted">Autori: {% for student in aplikacija.aplikacija_student.all %}{{student}}{% if not forloop.last %}, {% endif %}{% endfor %}</h6>
-        <a href="{{aplikacija.aplikacija_URL}}"><button type="button" style="position: absolute; background-color: yellow;" class="btn" >Posjeti</button></a>
-         </div>
-         {% load static %}<img src="{{aplikacija.aplikacija_slika}}" alt="NaslovnaSLika" class="responsive" width="300px" height="500px" style="border-radius: 5%">
+        <h6 class="text-muted">Autori: {% for student in aplikacija.aplikacija_student.all %}{{student}}{% if not forloop.last %}, {% endif %}{% endfor %} 
+        <a href="{{aplikacija.aplikacija_URL}}"><button type="button" style="position: inherit; background-color: darkred; width: 170px; height: 60px; font-size: large; float: right; margin: 20px;" class="btn" ><strong>Posjeti</strong></button></a>
+        </h6>
+         {% load static %}<img src="{{aplikacija.aplikacija_slika}}" alt="NaslovnaSLika" class="responsive" style="border-radius: 3%; width: 1440px; height: 500px; margin-left: auto; margin-right: auto;">
          <h4><strong>Objavljeno:</strong> {{aplikacija.aplikacija_datum}}</h4>
          <h4><strong>Akademska godina: </strong>{{aplikacija.aplikacija_AkGod}}</h4>
-         <p><h3><strong>Opis</strong></h3><br>{{aplikacija.aplikacija_opis}}</p>
+         <h4><strong>Opis</strong></h4><br>
+         <h6>{{aplikacija.aplikacija_opis}}</h6>
         {% endfor %}
     </div>
    
