@@ -5,6 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const godFilter = document.getElementById('god-filter');
+        godFilter.addEventListener('change', filterModels);
+
+    function filterModels() {
+    const selectedValue = godFilter.value;
+    const models = document.getElementsByClassName('Aplikacija');
+
+    for (let i = 0; i < models.length; i++) {
+        const model = models[i];
+        const god = model.getAttribute('aplikacija_AkGod');
+
+        if (selectedValue && god == selectedValue) {
+            model.style.display = 'none';
+        } else {
+            model.style.display = '';
+        }
+    }
+}
+    </script>
     <title>UpraviteljAplikacija</title>
 </head>
 
@@ -25,7 +45,19 @@
 
     <h3 style="margin: 20px"><strong>Aplikacije:</strong></h3><hr>
     
-    <div class="row mx-auto">
+    <form method="get">
+        <label for="filter-akgod" style="margin-left:50px">Filter po akademskog godini:</label>
+        <select id="filter-akgod" name="aplikacija_AkGod">
+            <option value=""{% if selected_value == "" %} selected{% endif %}>Odaberi Ak.God</option>
+            <{% for god in ak_god %}
+            <option value="{{ god }}">{{ god }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    
+    <br>
+    <div class="row mx-auto" style="margin-top: 20px">
         
         {% for aplikacija in aplikacija_list %}
         <div class="card col-12 col-md-6 col-lg-4 mb-5 mx-auto" style="width: 560px; border-color: rgb(83, 83, 83); border-width: 5px; border-radius: 2%;">
@@ -36,8 +68,8 @@
                 <h5 class="card-title"><strong><a href="{{aplikacija.aplikacija_naziv}}">{{aplikacija.aplikacija_naziv}}</a></strong></h5>
                 <h6 class="card-title">Autori: {% for student in aplikacija.aplikacija_student.all %}{{student}}{% if not forloop.last %}, {% endif %}{% endfor %}</h6><br>
                 <div class="row">
-                <div class="col"><h6 class="card-subtitle text-muted">Datum: {{aplikacija.aplikacija_datum}}</h6></div>
-                <div class="col"><h6 class="card-subtitle text-muted" style="float: right;">Ak. godina: {{aplikacija.aplikacija_AkGod}}</h6></div>
+                <!--<div class="col"><h6 class="card-subtitle text-muted">Datum: {{aplikacija.aplikacija_datum}}</h6></div>-->
+                <div class="col"><h6 class="card-subtitle text-muted" style="float: left;">Ak. godina: {{aplikacija.aplikacija_AkGod}}</h6></div>
                  </div>
             </div> 
         </div>

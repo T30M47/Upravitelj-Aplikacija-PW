@@ -3,6 +3,8 @@ from factory.django import DjangoModelFactory
 import factory.fuzzy
 from main.models import *
 
+
+
 class StudentFactory(DjangoModelFactory):
     class Meta:
         model=Student
@@ -21,6 +23,10 @@ class AplikacijaFactory(DjangoModelFactory):
     aplikacija_URL=factory.Faker("url")
     aplikacija_AkGod=factory.fuzzy.FuzzyInteger(2000, 2100)
     aplikacija_slika=factory.Faker("image_url")
+    aplikacija_slika1=factory.Faker("image_url")
+    aplikacija_slika2=factory.Faker("image_url")
+    aplikacija_slika3=factory.Faker("image_url")
+    aplikacija_slika4=factory.Faker("image_url")
     @factory.post_generation
     def students(self, create, extracted, **kwargs):
         if not create:
