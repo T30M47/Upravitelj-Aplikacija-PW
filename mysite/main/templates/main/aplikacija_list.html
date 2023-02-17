@@ -5,26 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        const godFilter = document.getElementById('god-filter');
-        godFilter.addEventListener('change', filterModels);
-
-    function filterModels() {
-    const selectedValue = godFilter.value;
-    const models = document.getElementsByClassName('Aplikacija');
-
-    for (let i = 0; i < models.length; i++) {
-        const model = models[i];
-        const god = model.getAttribute('aplikacija_AkGod');
-
-        if (selectedValue && god == selectedValue) {
-            model.style.display = 'none';
-        } else {
-            model.style.display = '';
-        }
-    }
-}
-    </script>
     <title>UpraviteljAplikacija</title>
 </head>
 
